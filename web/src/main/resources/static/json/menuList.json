@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "text": "人员管理",
+      "link": "",
+      "icon": "list",
+      "children": [
+        {
+          "text": "人员录入",
+          "link": "employeeInput.html"
+        },
+        {
+          "text": "批量导入",
+          "link": "fileUpload.html"
+        },
+        {
+          "text": "工作信息",
+          "link": "workQuery.html"
+        },
+        {
+          "text": "教育信息",
+          "link": "educationQuery.html"
+        },
+        {
+          "text": "账号信息",
+          "link": "accountQuery.html"
+        },
+        {
+          "text": "薪酬信息",
+          "link": "paymentQuery.html"
+        },
+        {
+          "text": "人员信息查询",
+          "link": "employeeQuery.html"
+        }
+      ]
+    },
+    {
+      "text": "薪酬管理",
+      "link": "",
+      "icon": "list",
+      "children": [
+        {
+          "text": "薪酬标准",
+          "link": "paymentStandardQuery.html"
+        },
+        {
+          "text": "工资信息",
+          "link": "salaryQuery.html"
+        }
+      ]
+    }
+  ],
+  "tasks": 23
+}

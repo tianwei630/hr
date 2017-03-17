@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>教育信息录入</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.0.0/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- <link rel="stylesheet" href="css/site.css"/> -->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/sweet-alert.css"/>
+    <script src="js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="css/angularjs-datetime-picker.css"/>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/angular-backtop.css"/>
+    <link rel="stylesheet" href="css/select.css"/>
+
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content tab-content">
+
+
+                        <!--教育信息-->
+                        <div class="widget-box">
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>教育信息</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="workForm" class="form-horizontal" method="post" name="workForm"
+                                      novalidate="novalidate">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="educationInfo.name"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="educationInfo.identityNumber"/>
+                                            </div>
+                                        </div>
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr class="odd gradeX">
+                                                <th >开始时间</th>
+                                                <th >结束时间</th>
+                                                <th >毕业院校</th>
+                                                <th >学历</th>
+                                                <th >学位</th>
+                                                <th >所学专业</th>
+                                                <th >是否全日制</th>
+                                                <th >操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="odd gradeX text-right"
+                                                ng-repeat="education in educationInfo.educations">
+                                                <td class="controls " >
+                                                    <div class="input-append date">
+
+                                                        <input id="beginDate" name="beginDate"
+                                                               type="text" class="datetimepicker w120" orz
+                                                               ng-model="education.beginDate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+                                                </td>
+                                                <td class="controls ">
+
+                                                    <div class="input-append date">
+
+                                                        <input id="endDate" name="endDate"
+                                                               type="text" class="datetimepicker w120" orz
+                                                               ng-model="education.endDate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+
+                                                </td>
+
+                                                <td class="controls " >
+
+                                                    <input id="graduateSchool" type="text" name="graduateSchool"
+                                                           class="w180"
+                                                           ng-model="education.graduateSchool"/>
+
+                                                </td>
+                                                <td class="controls  ">
+
+                                                    <input id="education" type="text" name="education"
+                                                           class="w120"
+                                                           ng-model="education.education"/>
+
+                                                </td>
+                                                <td class="controls  ">
+
+                                                    <input id="degree" type="text" name="degree"
+                                                           class="w120"
+                                                           ng-model="education.degree"/>
+
+                                                </td>
+                                                <td class="controls  ">
+
+                                                    <input id="major" type="text" name="major"
+                                                           class="w120"
+                                                           ng-model="education.major"/>
+
+                                                </td>
+                                                <td class="controls  ">
+                                                    <input type="checkbox" ng-true-value="1" ng-false-value="0"
+                                                           class="w120"
+                                                           ng-model="education.fullTimeFlag"
+                                                            />
+                                                </td>
+                                                <td class="controls">
+                                                    <button type="button" class="btn btn-success btn-xs"
+                                                            ng-click="educationInfo.add()"
+                                                            >
+                                                        <span class="glyphicon glyphicon-upload"></span> 新增
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs"
+                                                            ng-click="educationInfo.remove($index)">
+                                                        <span class="glyphicon glyphicon-trash"></span> 删除
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- bottom -->
+<div>
+    <div class="h30">
+        <div class="w h30 wrapper-bottom-buttons wrapper-bottom-buttons-bg"></div>
+        <div class="w tac wrapper-bottom-buttons fs0">
+            <!-- <button class="btn btn-success mt10">保存</button> -->
+            <button type="button" ng-click="baojia()" class="btn btn-success mt10 ml5">保存</button>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+<script src="js/bootstrap-datetimepicker.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-cookies.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+
+<script src="js/ui-bootstrap-tpls.js"></script>
+<script src="js/plugin/jquery.blockui.js"></script>
+<script src="js/common/LoaderMask.js"></script>
+
+<script src="js/jquery.validate.js"></script>
+<script src="js/jquery.cookie.js"></script>
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myController', function ($scope, $http, $log, $filter, $timeout) {
+        $scope.educationInfo = {
+            "name": "",
+            "identityNumber": "",
+            "educations": [
+                {
+                    "beginDate": "",
+                    "endDate": "",
+                    "graduateSchool": "",
+                    "education": "",
+                    "degree": "",
+                    "major": "",
+                    "fullTimeFlag": ""
+                },
+                {
+                    "beginDate": "",
+                    "endDate": "",
+                    "graduateSchool": "",
+                    "education": "",
+                    "degree": "",
+                    "major": "",
+                    "fullTimeFlag": ""
+                }
+
+            ],
+            add: function () {
+                this.educations.push(
+                        {
+                            "beginDate": "",
+                            "endDate": "",
+                            "graduateSchool": "",
+                            "education": "",
+                            "degree": "",
+                            "major": "",
+                            "fullTimeFlag": ""
+                        }
+                );
+            },
+            remove: function (index) {
+                if (this.educations.length == 1) {
+                    swal("系统提示", "必须录入至少一条教育信息", "error");
+                    return;
+                }
+                this.educations.splice(index, 1);
+            }
+        }
+
+
+    })
+
+    app.directive('orz', function () {
+        return {
+            restrict: 'A',
+            //总是和ng-model配合使用
+            require: 'ngModel',
+            scope: {
+                //此方法需要与预先定义好，然后传递给视图控制器中的指令
+                action: '&', //把我们所引用的select函数绑定到右边的作用域中
+                dateflag: '='//双向绑定变量
+
+            },
+            link: function (scope, element, attrs, ngModel) {
+
+                element.datetimepicker({
+                    minView: "month",
+                    format: "yyyy-mm-dd",
+                    language: 'zh-CN',
+                    autoclose: true,
+                    clearBtn: true
+                    //onSelect: function (dateText, inst) {
+                    //    ngModel.$setViewValue(dateText);
+                    //    scope.$apply();
+                    //}
+                })
+                        .on('changeDate', function (e) {
+                            //console.log('dp.change'+e.date.format('yyyy'));
+                            $(this).datetimepicker('hide');
+                            var year = e.date.getFullYear();
+                            var month = e.date.getMonth() + 1;
+                            if (month < 10) {
+                                month = '0' + month;
+                            }
+                            var date = e.date.getDate();
+                            if (date < 10) {
+                                date = '0' + date;
+                            }
+                            var formatDate = year + '-' + month + '-' + date;
+                            //console.log(formatDate);
+                            //console.debug(scope);
+                            ngModel.$setViewValue(formatDate);
+
+                            scope.$apply();
+                            scope.action();
+
+                        });
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+	"data" : [
+		{
+			"text": "系统配置",
+			"link": "" ,
+			"icon": "asterisk",
+			"children": [
+				{
+					"text": "用户管理",
+					"link": "user-manager.html"
+				},
+				{
+					"text": "新增管理员",
+					"link": "manager-add.html"
+				},
+				{
+					"text": "新增用户",
+					"link": "user-add.html"
+				}
+				
+			]
+		}
+	] ,
+	"tasks" : 23
+}

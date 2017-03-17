@@ -1,0 +1,372 @@
+<div class="widget-box">
+    <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+        <h5>工资信息</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <form id="salaryForm" class="form-horizontal" method="post" name="salaryForm"
+              novalidate="novalidate">
+            <div id="form-wizard-1" class="step">
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>姓名:</label>
+
+                    <div class="controls">
+
+                        <input id="name" type="text" name="name"
+                               ng-model="salaryInfo.name"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>身份证号码:</label>
+
+                    <div class="controls">
+                        <input id="identityNumber" type="text" name="identityNumber"
+                               ng-model="salaryInfo.identityNumber"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>月份:</label>
+
+                    <div class="controls">
+                        <input id="month" type="text" name="month"
+                               ng-model="salaryInfo.month"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>部门:</label>
+
+                    <div class="controls">
+                        <input id="comCode" type="text" name="comCode"
+                               ng-model="salaryInfo.comCode"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>基本工资:</label>
+
+                    <div class="controls">
+                        <input id="basicSalary" type="text" name="basicSalary"
+                               ng-model="salaryInfo.basicSalary"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>岗位工资:</label>
+
+                    <div class="controls">
+                        <input id="postSalary" type="text" name="postSalary"
+                               ng-model="salaryInfo.postSalary"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>绩效工资:</label>
+
+                    <div class="controls">
+                        <input id="performanceSalary" type="text" name="performanceSalary"
+                               ng-model="salaryInfo.performanceSalary"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>其他工资收入:</label>
+
+                    <div class="controls">
+                        <input id="otherIncome" type="text" name="otherIncome"
+                               ng-model="salaryInfo.otherIncome"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>福利合计:</label>
+
+                    <div class="controls">
+                        <input id="totalWelFare" type="text" name="totalWelFare"
+                               ng-model="salaryInfo.totalWelFare"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>应发税前工资:</label>
+
+                    <div class="controls">
+                        <input id="preTaxSalary" type="text" name="preTaxSalary"
+                               ng-model="salaryInfo.preTaxSalary"/>
+                    </div>
+                </div>
+
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减个人养老保险:</label>
+
+                    <div class="controls">
+                        <input id="personEndowmentInsuranceDeduction" type="text" name="personEndowmentInsuranceDeduction"
+                               ng-model="salaryInfo.personEndowmentInsuranceDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减个人医疗保险:</label>
+
+                    <div class="controls">
+                        <input id="personMedicalInsuranceDeduction" type="text" name="personMedicalInsuranceDeduction"
+                               ng-model="salaryInfo.personMedicalInsuranceDeduction"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减个人失业保险:</label>
+
+                    <div class="controls">
+                        <input id="personUnemploymentInsuranceDeduction" type="text" name="personUnemploymentInsuranceDeduction"
+                               ng-model="salaryInfo.personUnemploymentInsuranceDeduction"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减个人住房公积金:</label>
+
+                    <div class="controls">
+                        <input id="personHouseFundDeduction" type="text" name="personHouseFundDeduction"
+                               ng-model="salaryInfo.personHouseFundDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减个人企业年金:</label>
+
+                    <div class="controls">
+                        <input id="personEmployerAnnuityDeduction" type="text" name="personEmployerAnnuityDeduction"
+                               ng-model="salaryInfo.personEmployerAnnuityDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>其他扣款项:</label>
+
+                    <div class="controls">
+                        <input id="otherDeduction" type="text" name="otherDeduction"
+                               ng-model="salaryInfo.otherDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减工会会费:</label>
+
+                    <div class="controls">
+                        <input id="laborFeeDeduction" type="text" name="laborFeeDeduction"
+                               ng-model="salaryInfo.laborFeeDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>合并计税金额:</label>
+
+                    <div class="controls">
+                        <input id="otherMergeIncome" type="text" name="otherMergeIncome"
+                               ng-model="salaryInfo.otherMergeIncome"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>加班工资:</label>
+
+                    <div class="controls">
+                        <input id="overtimePay" type="text" name="overtimePay"
+                               ng-model="salaryInfo.overtimePay"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>补发补扣:</label>
+
+                    <div class="controls">
+                        <input id="reissuePay" type="text" name="reissuePay"
+                               ng-model="salaryInfo.reissuePay"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>免税额:</label>
+
+                    <div class="controls">
+                        <input id="exemptions" type="text" name="exemptions"
+                               ng-model="salaryInfo.exemptions"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>应纳税所得额:</label>
+
+                    <div class="controls">
+                        <input id="taxableIncome" type="text" name="taxableIncome"
+                               ng-model="salaryInfo.taxableIncome"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>本月扣税:</label>
+
+                    <div class="controls">
+                        <input id="taxAmount" type="text" name="taxAmount"
+                               ng-model="salaryInfo.taxAmount"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣款小计:</label>
+
+                    <div class="controls">
+                        <input id="totalDeductionAmount" type="text" name="totalDeductionAmount"
+                               ng-model="salaryInfo.totalDeductionAmount"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>实发金额:</label>
+
+                    <div class="controls">
+                        <input id="takeHomeAmount" type="text" name="takeHomeAmount"
+                               ng-model="salaryInfo.takeHomeAmount"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减社会养老保险:</label>
+
+                    <div class="controls">
+                        <input id="socialEndowmentInsuranceDeduction" type="text" name="socialEndowmentInsuranceDeduction"
+                               ng-model="salaryInfo.socialEndowmentInsuranceDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减社会医疗保险:</label>
+
+                    <div class="controls">
+                        <input id="socialMedicalInsuranceDeduction" type="text" name="socialMedicalInsuranceDeduction"
+                               ng-model="salaryInfo.socialMedicalInsuranceDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减社会失业保险:</label>
+
+                    <div class="controls">
+                        <input id="socialUnemploymentInsuranceDeduction" type="text" name="socialUnemploymentInsuranceDeduction"
+                               ng-model="salaryInfo.socialUnemploymentInsuranceDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减社会工伤保险:</label>
+
+                    <div class="controls">
+                        <input id="socialWorkInjuryInsuranceDeduction" type="text" name="socialWorkInjuryInsuranceDeduction"
+                               ng-model="salaryInfo.socialWorkInjuryInsuranceDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>扣减社会生育保险:</label>
+
+                    <div class="controls">
+                        <input id="socialMaternityInsuranceDeduction" type="text" name="socialMaternityInsuranceDeduction"
+                               ng-model="salaryInfo.socialMaternityInsuranceDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>单位住房公积金:</label>
+
+                    <div class="controls">
+                        <input id="socialHouseFundAmount" type="text" name="socialHouseFundAmount"
+                               ng-model="salaryInfo.socialHouseFundAmount"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>单位企业年金:</label>
+
+                    <div class="controls">
+                        <input id="socialEmployerAnnuityAmount" type="text" name="socialEmployerAnnuityAmount"
+                               ng-model="salaryInfo.socialEmployerAnnuityAmount"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>企业年金免税额:</label>
+
+                    <div class="controls">
+                        <input id="socialEmployerAnnuityExemptions" type="text" name="socialEmployerAnnuityExemptions"
+                               ng-model="salaryInfo.socialEmployerAnnuityExemptions"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>税率:</label>
+
+                    <div class="controls">
+                        <input id="taxRate" type="text" name="taxRate"
+                               ng-model="salaryInfo.taxRate"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>速算扣除数:</label>
+
+                    <div class="controls">
+                        <input id="rapidCalculationDeduction" type="text" name="rapidCalculationDeduction"
+                               ng-model="salaryInfo.rapidCalculationDeduction"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>住房公积金上限:</label>
+
+                    <div class="controls">
+                        <input id="HouseFundExemptionsLimit" type="text" name="HouseFundExemptionsLimit"
+                               ng-model="salaryInfo.HouseFundExemptionsLimit"/>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </form>
+    </div>
+
+</div>
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<title>人资资源系统</title>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" href="css/reset.css"/>
+	<link rel="stylesheet" href="css/site.css"/>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js?v3.70"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/sweet-alert.css" />
+ 
+</head>
+<body  >
+<div id="header">
+	<div id="logo"></div>
+	<div id="headerBars">
+		<div id="topBar" >
+			<div id="userBar" id="username">
+				<label id="username"></label>
+			</div>
+			<ul id="topNavMenu">
+				<li class="topNavMenuItem">
+					<a id="aSignout" class="topNavMenuLink" href="#"><i class="icon icon-off"></i> 安全退出</a>
+				</li>
+				<li id="liFullScr" class="topNavMenuItem">
+					<a class="topNavMenuLink" href="#" onclick="Page.doFullScreen(this)"><i
+							class="icon icon-share"></i> 全屏</a>
+				</li>
+				<li class="topNavMenuItem">
+					<a class="topNavMenuLink" href="#" onclick="Page.changePassword()"><i class="icon icon-lock"></i>
+						修改密码</a>
+				</li>
+				<!-- li class="topNavMenuItem">
+					<a class="topNavMenuLink" href="tasks.html" target="mainFrame"><i class="icon icon-envelope"></i>
+						代办任务 <span id="spanTasks" class="label label-important"></span></a>
+				</li -->
+			</ul>
+		</div>
+		<div id="breadcrumb">
+			<i class="iconGray icon-home"></i> <a href="">首页</a>
+			<span id="route"> &gt;  人员录入</span>
+			<!-- <span id="route"></span> -->
+		</div>
+	</div>
+</div>
+
+
+<div id="sideBar">
+	<ul id="sysMenu" class="ulMenu-lv1">
+	</ul>
+</div>
+
+<div id="mainSec">
+	<iframe id="mainFrame" name="mainFrame" src="employeeInput.html" frameborder="0"></iframe>
+</div>
+<div class="footer" id="footerId">copyright2017 ,推荐使用IE9，谷歌等浏览器，性能更优</div>
+<!-- html :end -->
+</body>
+<!--[if lt IE 8]>
+<script src="js/json2.min.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="js/jquery-1.10.2.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="js/jquery-2.0.3.min.js"></script>
+<!--<![endif]-->
+<script src="js/fy.min.js"></script>
+<!-- site global config -->
+<script src="js/config.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/plugin/jquery.blockui.js"></script>
+<script src="js/common/LoaderMask.js"></script>
+<script src="js/sweet-alert.min.js"></script>  
+<script src="js/index.js"></script>
+<!-- <script src="js/angular-1.2.9.js"></script>
+<script src="js/angular-cookies.js"></script> -->
+
+
+</html>

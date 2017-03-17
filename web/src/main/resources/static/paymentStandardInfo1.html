@@ -1,0 +1,261 @@
+<!--薪酬标准-->
+<div class="widget-box">
+    <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+        <h5>薪酬标准</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <form id="paymentStandardForm" class="form-horizontal" method="post" name="paymentStandardForm"
+              novalidate="novalidate">
+            <div id="form-wizard-1" class="step">
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>职级:</label>
+                    <div class="controls">
+                        <div custom-select="g.code+'--'+g.name for g in jobLevels | filter: $searchTerm"
+                             custom-select-options="jobLevelOptions" ng-model="paymentStandardInfo.jobLevel"></div>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>档次:</label>
+                    <div class="controls">
+                        <div custom-select="g.code+'--'+g.name for g in jobGrades | filter: $searchTerm"
+                             custom-select-options="jobGradeOptions" ng-model="paymentStandardInfo.jobGrade"></div>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>年薪标准:</label>
+
+                    <div class="controls">
+
+                        <input id="yearSalaryStandard" type="number"  step="0.01" name="yearSalaryStandard"
+                               ng-model="paymentStandardInfo.yearSalaryStandard"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>基本工资:</label>
+
+                    <div class="controls">
+
+                        <input id="basicSalary" type="number"  step="0.01" name="basicSalary"
+                               ng-model="paymentStandardInfo.basicSalary"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>岗位工资:</label>
+
+                    <div class="controls">
+
+                        <input id="postSalary" type="number"  step="0.01" name="postSalary"
+                               ng-model="paymentStandardInfo.postSalary"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>绩效工资:</label>
+
+                    <div class="controls">
+
+                        <input id="performanceSalary" type="number"  step="0.01" name="performanceSalary"
+                               ng-model="paymentStandardInfo.performanceSalary"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>每月税前工资:</label>
+
+                    <div class="controls">
+
+                        <input id="preTaxSalary" type="number"  step="0.01" name="preTaxSalary"
+                               ng-model="paymentStandardInfo.preTaxSalary"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>年终绩效工资:</label>
+
+                    <div class="controls">
+
+                        <input id="endYearPerformanceSalary" type="number"  step="0.01" name="endYearPerformanceSalary"
+                               ng-model="paymentStandardInfo.endYearPerformanceSalary"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>工会会费:</label>
+
+                    <div class="controls">
+
+                        <input id="laborFee" type="number"  step="0.01" name="laborFee"
+                               ng-model="paymentStandardInfo.laborFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>年收入:</label>
+
+                    <div class="controls">
+
+                        <input id="yearSalary" type="number"  step="0.01" name="yearSalary"
+                               ng-model="paymentStandardInfo.yearSalary"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>福利合计:</label>
+
+                    <div class="controls">
+
+                        <input id="totalWelFare" type="number"  step="0.01" name="totalWelFare"
+                               ng-model="paymentStandardInfo.totalWelFare"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>月度福利:</label>
+
+                    <div class="controls">
+
+                        <input id="welFare" type="number"  step="0.01" name="welFare"
+                               ng-model="paymentStandardInfo.welFare"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>交通费:</label>
+
+                    <div class="controls">
+
+                        <input id="trafficFee" type="number"  step="0.01" name="trafficFee"
+                               ng-model="paymentStandardInfo.trafficFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>通讯费:</label>
+
+                    <div class="controls">
+
+                        <input id="communicationFee" type="number"  step="0.01" name="communicationFee"
+                               ng-model="paymentStandardInfo.communicationFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>伙食费:</label>
+
+                    <div class="controls">
+
+                        <input id="foodFee" type="number"  step="0.01" name="foodFee"
+                               ng-model="paymentStandardInfo.foodFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>劳动保护费:</label>
+
+                    <div class="controls">
+
+                        <input id="workProtectionFee" type="number"  step="0.01" name="workProtectionFee"
+                               ng-model="paymentStandardInfo.workProtectionFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>居住管理费:</label>
+
+                    <div class="controls">
+
+                        <input id="houseFee" type="number"  step="0.01" name="houseFee"
+                               ng-model="paymentStandardInfo.houseFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>医疗包干费:</label>
+
+                    <div class="controls">
+
+                        <input id="medicalFee" type="number"  step="0.01" name="medicalFee"
+                               ng-model="paymentStandardInfo.medicalFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>工作置装费:</label>
+
+                    <div class="controls">
+
+                        <input id="clothesFee" type="number"  step="0.01" name="clothesFee"
+                               ng-model="paymentStandardInfo.clothesFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>洗衣费:</label>
+
+                    <div class="controls">
+
+                        <input id="washClothesFee" type="number"  step="0.01" name="washClothesFee"
+                               ng-model="paymentStandardInfo.washClothesFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>生日费:</label>
+
+                    <div class="controls">
+
+                        <input id="birthdayFee" type="number"  step="0.01" name="birthdayFee"
+                               ng-model="paymentStandardInfo.birthdayFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>过节费:</label>
+
+                    <div class="controls">
+
+                        <input id="totalHolidayFee" type="number"  step="0.01" name="totalHolidayFee"
+                               ng-model="paymentStandardInfo.totalHolidayFee"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>清凉费:</label>
+
+                    <div class="controls">
+
+                        <input id="coolFee" type="number"  step="0.01" name="coolFee"
+                               ng-model="paymentStandardInfo.coolFee"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+
+</div>

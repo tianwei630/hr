@@ -1,0 +1,108 @@
+
+<div class="widget-box">
+    <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+        <h5>工作信息</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <form id="workForm" class="form-horizontal" method="post" name="workForm"
+              novalidate="novalidate">
+            <div id="form-wizard-1" class="step">
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>姓名:</label>
+
+                    <div class="controls">
+
+                        <input id="name" type="text" name="name"
+                               ng-model="workInfo.name"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>身份证号码:</label>
+
+                    <div class="controls">
+                        <input id="identityNumber" type="text" name="identityNumber"
+                               ng-model="workInfo.identityNumber"/>
+                    </div>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="odd gradeX">
+                        <th>工作开始时间</th>
+                        <th>工作结束时间</th>
+                        <th>工作单位</th>
+                        <th>工作部门</th>
+                        <th>工作职位</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="odd gradeX text-right"
+                        ng-repeat="work in workInfo.works"   >
+                        <td class="controls">
+                            <div class="input-append date">
+
+                                <input id="beginDate" name="beginDate"
+                                       type="text" class="datetimepicker" orz
+                                       ng-model="work.beginDate"
+                                        />
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                            </div>
+                        </td>
+                        <td class="controls">
+
+                            <div class="input-append date">
+
+                                <input id="endDate" name="endDate"
+                                       type="text" class="datetimepicker" orz
+                                       ng-model="work.endDate"
+                                        />
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                            </div>
+
+                        </td>
+                        <td class="controls">
+
+                            <input id="workCompany" type="text" name="workCompany"
+                                   ng-model="work.workCompany"/>
+
+                        </td>
+                        <td class="controls">
+
+                            <input id="workDepartMent" type="text" name="workDepartMent"
+                                   ng-model="work.workDepartMent"/>
+
+                        </td>
+                        <td class="controls">
+
+                            <input id="workPosition" type="text" name="workPosition"
+                                   ng-model="work.workPosition"/>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success btn-xs"
+                                    ng-click="workInfo.add()"
+                                    >
+                                <span class="glyphicon glyphicon-upload"></span> 新增
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs"
+                                    ng-click="workInfo.remove($index)">
+                                <span class="glyphicon glyphicon-trash"></span> 删除
+                            </button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </form>
+    </div>
+
+</div>
+

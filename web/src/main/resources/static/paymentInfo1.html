@@ -1,0 +1,101 @@
+<div class="widget-box">
+    <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+        <h5>薪酬信息</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <form id="paymentForm" class="form-horizontal" method="post" name="paymentForm"
+              novalidate="novalidate">
+            <div id="form-wizard-1" class="step">
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>姓名:</label>
+
+                    <div class="controls">
+
+                        <input id="name" type="text" name="name"
+                               ng-model="paymentInfo.name"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>身份证号码:</label>
+
+                    <div class="controls">
+                        <input id="identityNumber" type="text" name="identityNumber"
+                               ng-model="paymentInfo.identityNumber"/>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="odd gradeX">
+                        <th>薪酬开始时间</th>
+                        <th>薪酬结束时间</th>
+                        <th>职级</th>
+                        <th>档次</th>
+                        <th>发放比例</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="odd gradeX text-right"
+                        ng-repeat="payment in paymentInfo.payments"   >
+                        <td class="controls">
+                            <div class="input-append date">
+
+                                <input id="beginDate" name="beginDate"
+                                       type="text" class="datetimepicker" orz
+                                       ng-model="payment.beginDate"
+                                        />
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                            </div>
+                        </td>
+                        <td class="controls">
+
+                            <div class="input-append date">
+
+                                <input id="endDate" name="endDate"
+                                       type="text" class="datetimepicker" orz
+                                       ng-model="payment.endDate"
+                                        />
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                            </div>
+
+                        </td>
+                        <td class="controls">
+                            <div custom-select="g.code+'--'+g.name for g in jobLevels | filter: $searchTerm"
+                                 ng-model="payment.jobLevel"></div>
+
+                        </td>
+                        <td class="controls">
+                            <div custom-select="g.code+'--'+g.name for g in jobGrades | filter: $searchTerm"
+                                 ng-model="payment.jobGrade"></div>
+                        </td>
+                        <td class="controls">
+
+                            <input id="workPosition" type="text" name="workPosition"
+                                   ng-model="payment.grantRadio"/>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success btn-xs"
+                                    ng-click="paymentInfo.add()"
+                                    >
+                                <span class="glyphicon glyphicon-upload"></span> 新增
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs"
+                                    ng-click="paymentInfo.remove($index)">
+                                <span class="glyphicon glyphicon-trash"></span> 删除
+                            </button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </form>
+    </div>
+
+</div>

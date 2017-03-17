@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/eurekaServer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/css/bootstrap/3.0.0/bootstrap.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/css/bootstrap/3.0.0/bootstrap.min.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/img/logo.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/angular-file-upload.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/console-sham.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/controllers.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/es5-sham.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/es5-shim.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/indexCtrl.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/indexSvc.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/ng-file-upload-shim.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/ng-file-upload.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/js/ng-file-upload.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/src/main/resources/static/upload.php" charset="GBK" />
+  </component>
+</project>

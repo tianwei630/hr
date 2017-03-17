@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html id="ng-app" ng-app="app"> <!-- id="ng-app" IE<8 -->
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Simple example</title>
+    <!--<link rel="stylesheet" href="css/bootstrap/3.0.0/bootstrap.css" />-->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <!-- Fix for old browsers -->
+    <script src="js/es5-shim.min.js"></script>
+    <script src="js/es5-sham.min.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/console-sham.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--<script src="../bower_components/angular/angular.js"></script>-->
+    <script src="js/angular.min.js"></script>
+
+    <script src="js/angular-file-upload.min.js"></script>
+
+
+
+
+    <style>
+        .my-drop-zone {
+            border: dotted 3px lightgray;
+        }
+
+        .nv-file-over {
+            border: dotted 3px red;
+        }
+
+        /* Default class applied to drop zones on over */
+        .another-file-over-class {
+            border: dotted 3px green;
+        }
+
+        html, body {
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<!-- 1. nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+<body >
+
+<div ng-app="app">
+    <div ng-controller="AppController">
+        <input type="file" nv-file-select uploader="uploader"/><br/>
+        <ul>
+            <li ng-repeat="item in uploader.queue">
+                Name: <span ng-bind="item.file.name"></span><br/>
+                <button ng-click="item.upload()">upload</button>
+            </li>
+        </ul>
+
+        <td class="text-center">
+            <select  name="contractTye"
+                     ng-model="input.kindCode"
+                   ng-change="change()" >
+                <option value="?">--请选择--</option>
+                <option value="1">人员信息</option>
+                <option value="2">教育信息</option>
+                <option value="3">账号信息</option>
+                <option value="4">工作信息</option>
+                <option value="5">薪酬信息</option>
+            </select>
+        </td>
+
+    </div>
+</div>
+<script>
+    angular
+            .module('app', ['angularFileUpload'])
+            .controller('AppController', function($scope, FileUploader) {
+                $scope.input={
+                    "kindCode":"1"
+                };
+                $scope.uploader = new FileUploader({
+                    url: 'api-a/upload1',
+                    formData:[
+                        {"type":$scope.input.kindCode}
+                    ]
+                });
+//                $scope.change=function(){
+//                    $scope.uploader.formData=[
+//                        {"type":$scope.input.kindCode}
+//                    ]
+//                }
+                $scope.uploader.onBeforeUploadItem = function(item) {
+                    console.info('onBeforeUploadItem', item);
+//                    $scope.uploader.url="api-a/upload1";
+                    item.formData=[
+                        {"type":$scope.input.kindCode}
+                    ]
+                };
+
+            });
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/**
+ *MarsCheng 
+ */
+$(function(){
+	var userCde = $.cookie("userCode");
+	$.ajax({
+		type:'post',
+		url:'userInfo.findByUsercde.action',
+		dataType:'json',
+		data:{
+			userCode:userCde
+		},
+		success:function(data){
+			var businessNature = data.dto.businessNatureCde;
+			if(businessNature.indexOf("寿代产")>=0){
+				$("#lifeHandler").css('display','block'); 
+			}
+			else{
+				$("#lifeHandler").css('display','none'); 
+			}
+			$("#userCde").val(data.dto.userCde);
+			$("#userNme").val(data.dto.userNme);
+			$("#userStatus").val(data.dto.userStatus);
+			$("#userType").val(data.dto.userType);
+			$("#dept").val(data.dto.dept);
+			$("#deptNme").val(data.dto.deptNme);
+			$("#handler1Cde").val(data.dto.handler1Cde);
+			$("#handler1Nme").val(data.dto.handler1Nme);
+			$("#handlerCde").val(data.dto.handlerCde);
+			$("#handlerNme").val(data.dto.handlerNme);
+			$("#ChannelType").val(data.dto.channelType);
+			$("#businessNatureCde").val(data.dto.businessNatureCde);
+			$("#agentCde").val(data.dto.agentCde);
+			$("#agentNme").val(data.dto.agentNme);
+			$("#permitNo").val(data.dto.permitNo);
+			$("#agreementNo").val(data.dto.agreementNo);
+			$("#remark").val(data.dto.remark);
+		}
+	});
+});

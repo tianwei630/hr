@@ -1,0 +1,1066 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>人员信息</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- <link rel="stylesheet" href="css/site.css"/> -->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/sweet-alert.css"/>
+    <script src="js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="css/angularjs-datetime-picker.css"/>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/angular-backtop.css"/>
+    <link rel="stylesheet" href="css/select.css"/>
+
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<!-- 报价系统，svn上传测试 -->
+
+<!--<div>--v class="h30">-->
+<!--<div class="w h30 wrapper-top-buttons wrapper-top-buttons-bg"></div>-->
+<!--<div class="w tac wrapper-top-buttons wrapper-top-buttons-bg">-->
+<!--<ul class="nav navbar-nav inline">-->
+<!--<li  ><a href="#home">报价</a></li>-->
+<!--<li ><a href="#features">转订单</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content tab-content">
+
+
+                        <!--人员基本信息-->
+                        <div class="widget-box"  >
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>人员基本信息</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="carForm" class="form-horizontal" method="post" name="carForm"
+                                      novalidate="novalidate"  >
+                                    <fieldset ng-readonly="true">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="employee.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>sap号:</label>
+
+                                            <div class="controls">
+                                                <input id="sapNo" type="text" name="sapNo"
+                                                       ng-model="employee.sapNo"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="employee.identityNumber"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>部门:</label>
+
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in comCodes | filter: $searchTerm"
+                                                     custom-select-options="comCodeOptions" ng-model="employee.comCode"></div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips"></span>二级部门:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in teamCodes | filter: $searchTerm"
+                                                     custom-select-options="teamCodeOptions" ng-model="employee.teamCode"></div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips"></span>所属渠道:</label>
+
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in channelTypes | filter: $searchTerm"
+                                                     custom-select-options="channelTypeOptions" ng-model="employee.channelType"></div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips"></span>人员清分:</label>
+
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in personTypes | filter: $searchTerm"
+                                                     custom-select-options="personTypeOptions" ng-model="employee.personType"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>现任职务:</label>
+
+                                            <div class="controls">
+                                                <input id="position" type="text" name="position"
+                                                       ng-model="employee.position"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>岗位:</label>
+
+                                            <div class="controls">
+                                                <input id="post" type="text" name="post"
+                                                       ng-model="employee.post"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>岗位类别:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in postTypes | filter: $searchTerm"
+                                                     custom-select-options="postTypeOptions" ng-model="employee.postType"></div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>性别:</label>
+
+                                            <div class="controls">
+                                                <select class="w160" name="sex"
+                                                        ng-model="employee.sex"
+                                                        >
+                                                    <option value="?">--请选择--</option>
+                                                    <option value="1">男</option>
+                                                    <option value="2">女</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>出生日期:</label>
+
+                                            <div class="controls">
+                                                <div class="input-append date">
+
+                                                    <input class="w180" size="16" id="birthday" name="birthday"
+                                                           type="text" class="datetimepicker" orz
+                                                           ng-model="employee.birthday"
+                                                            />
+                                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>户籍:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in residences | filter: $searchTerm"
+                                                     custom-select-options="residenceOptions" ng-model="employee.residence"></div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>籍贯:</label>
+
+                                            <div class="controls">
+                                                <input id="nativePlace" type="text" name="nativePlace"
+                                                       ng-model="employee.nativePlace"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>民族:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in nations | filter: $searchTerm"
+                                                     custom-select-options="nationOptions" ng-model="employee.nation"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>入司时间:</label>
+
+                                            <div class="controls">
+                                                <div class="input-append date">
+
+                                                    <input class="w180" size="16" id="enterDate" name="enterDate"
+                                                           type="text" class="datetimepicker" orz
+                                                           ng-model="employee.enterDate"
+                                                            />
+                                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>离司时间:</label>
+
+                                            <div class="controls">
+                                                <div class="input-append date">
+
+                                                    <input class="w180" size="16" id="leaveDate" name="leaveDate"
+                                                           type="text" class="datetimepicker" orz
+                                                           ng-model="employee.leaveDate"
+                                                            />
+                                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>政治面貌:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in politicalStatuss | filter: $searchTerm"
+                                                     custom-select-options="politicalStatusOptions" ng-model="employee.politicalStatus"></div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>入党时间:</label>
+
+                                            <div class="controls">
+                                                <div class="input-append date">
+
+                                                    <input class="w180" size="16" id="joinGCDDate" name="joinGCDDate"
+                                                           type="text" class="datetimepicker" orz
+                                                           ng-model="employee.joinGCDDate"
+                                                            />
+                                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>学历:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in educations | filter: $searchTerm"
+                                                     custom-select-options="educationOptions" ng-model="employee.education"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>学位:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in degrees | filter: $searchTerm"
+                                                     custom-select-options="degreeOptions" ng-model="employee.degree"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>所学专业:</label>
+
+                                            <div class="controls">
+                                                <input id="major" type="text" name="major"
+                                                       ng-model="employee.major"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>是否全日制:</label>
+
+                                            <div class="controls">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="fullTimeFlag" id="fullTimeFlag1"
+                                                           value="1" ng-checked="true"
+                                                           ng-model="employee.fullTimeFlag">
+                                                    是
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="fullTimeFlag" id="fullTimeFlag2"
+                                                           value="0"
+                                                           ng-model="employee.fullTimeFlag">
+                                                    否
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>毕业院校:</label>
+
+                                            <div class="controls">
+                                                <input id="graduateSchool" type="text" name="graduateSchool"
+                                                       ng-model="employee.graduateSchool"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>专业技术职称:</label>
+
+                                            <div class="controls">
+                                                <input id="professionalName" type="text" name="professionalName"
+                                                       ng-model="employee.professionalName"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>职称级别:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in professionalLevels | filter: $searchTerm"
+                                                     custom-select-options="professionalLevelOptions" ng-model="employee.professionalLevel"></div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>合同类型:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in contractTyes | filter: $searchTerm"
+                                                     custom-select-options="contractTyeOptions" ng-model="employee.contractTye"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>婚姻状况:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in maritalStatuss | filter: $searchTerm"
+                                                     custom-select-options="maritalStatusOptions" ng-model="employee.maritalStatus"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>手机号码:</label>
+
+                                            <div class="controls">
+                                                <input id="mobilePhone" type="text" name="mobilePhone"
+                                                       ng-model="employee.mobilePhone"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>在职状态:</label>
+                                            <div class="controls">
+                                                <div custom-select="g.code+'--'+g.name for g in statuss | filter: $searchTerm"
+                                                     custom-select-options="statusOptions" ng-model="employee.status"></div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    </fieldset>
+                                </form>
+                            </div>
+
+                        </div>
+                         <!-- 教育信息-->
+                        <div class="widget-box"   >
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>教育信息</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="workForm" class="form-horizontal" method="post" name="workForm"
+                                      novalidate="novalidate">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="educationInfo.name"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="educationInfo.identityNumber"/>
+                                            </div>
+                                        </div>
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr class="odd gradeX">
+                                                <th>开始时间</th>
+                                                <th>结束时间</th>
+                                                <th>毕业院校</th>
+                                                <th>学历</th>
+                                                <th>学位</th>
+                                                <th>所学专业</th>
+                                                <th>是否全日制</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="odd gradeX text-right"
+                                                ng-repeat="education in educationInfo.educations">
+                                                <td class="controls">
+                                                    <div class="input-append date">
+
+                                                        <input id="beginDate" name="beginDate"
+                                                               type="text" class="datetimepicker w120" orz
+                                                               ng-model="education.beginDate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+                                                </td>
+                                                <td class="controls ">
+
+                                                    <div class="input-append date">
+
+                                                        <input id="endate" name="endate"
+                                                               type="text" class="datetimepicker w120" orz
+                                                               ng-model="education.endate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+
+                                                </td>
+                                                <td class="controls col-md-2">
+
+                                                    <input id="graduateSchool" type="text" name="graduateSchool"
+                                                           ng-model="education.graduateSchool"/>
+
+                                                </td>
+                                                <td class="controls col-md-1">
+
+                                                    <input id="education" type="text" name="education"
+                                                           ng-model="education.education"/>
+
+                                                </td>
+                                                <td class="controls col-md-1">
+
+                                                    <input id="degree" type="text" name="degree"
+                                                           ng-model="education.degree"/>
+
+                                                </td>
+                                                <td class="controls col-md-1">
+
+                                                    <input id="major" type="text" name="major"
+                                                           ng-model="education.major"/>
+
+                                                </td>
+                                                <td class="controls col-md-1">
+                                                    <input type="checkbox" ng-true-value="1" ng-false-value="0"
+                                                           ng-model="education.fullTimeFlag"
+                                                            />
+                                                </td>
+                                                <td class="col-md-2">
+                                                    <button type="button" class="btn btn-success btn-xs"
+                                                            ng-click="educationInfo.add()"
+                                                            >
+                                                        <span class="glyphicon glyphicon-upload"></span> 新增
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs"
+                                                            ng-click="educationInfo.remove($index)">
+                                                        <span class="glyphicon glyphicon-trash"></span> 删除
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                         <!-- 工作信息-->
+                        <div class="widget-box"  >
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>工作信息</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="workForm" class="form-horizontal" method="post" name="workForm"
+                                      novalidate="novalidate">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="workInfo.name"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="workInfo.identityNumber"/>
+                                            </div>
+                                        </div>
+
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr class="odd gradeX">
+                                                <th>工作开始时间</th>
+                                                <th>工作结束时间</th>
+                                                <th>工作单位</th>
+                                                <th>工作部门</th>
+                                                <th>工作职位</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="odd gradeX text-right"
+                                                ng-repeat="work in workInfo.works"   >
+                                                <td class="controls">
+                                                    <div class="input-append date">
+
+                                                        <input id="beginDate" name="beginDate"
+                                                               type="text" class="datetimepicker" orz
+                                                               ng-model="work.beginDate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+                                                </td>
+                                                <td class="controls">
+
+                                                    <div class="input-append date">
+
+                                                        <input id="endate" name="endate"
+                                                               type="text" class="datetimepicker" orz
+                                                               ng-model="work.endate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+
+                                                </td>
+                                                <td class="controls">
+
+                                                    <input id="workCompany" type="text" name="workCompany"
+                                                           ng-model="work.workCompany"/>
+
+                                                </td>
+                                                <td class="controls">
+
+                                                    <input id="workDepartMent" type="text" name="workDepartMent"
+                                                           ng-model="work.workDepartMent"/>
+
+                                                </td>
+                                                <td class="controls">
+
+                                                    <input id="workPosition" type="text" name="workPosition"
+                                                           ng-model="work.workPosition"/>
+
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-xs"
+                                                            ng-click="workInfo.add()"
+                                                            >
+                                                        <span class="glyphicon glyphicon-upload"></span> 新增
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs"
+                                                            ng-click="workInfo.remove($index)">
+                                                        <span class="glyphicon glyphicon-trash"></span> 删除
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <!-- 账号信息-->
+                        <div class="widget-box"  >
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>账号信息</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="workForm" class="form-horizontal" method="post" name="workForm"
+                                      novalidate="novalidate">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="accountInfo.name"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="accountInfo.identityNumber"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>工资卡号:</label>
+
+                                            <div class="controls">
+                                                <input id="accountNo" type="text" name="accountNo"
+                                                       ng-model="accountInfo.accountNo"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>社保电脑号:</label>
+
+                                            <div class="controls">
+                                                <input id="socialInsuranceNo" type="text" name="socialInsuranceNo"
+                                                       ng-model="accountInfo.socialInsuranceNo"/>
+                                            </div>
+                                        </div>
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>公积金账号:</label>
+
+                                            <div class="controls">
+                                                <input id="houseNo" type="text" name="houseNo"
+                                                       ng-model="accountInfo.houseNo"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <!-- 薪酬信息-->
+                        <div class="widget-box"  >
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>薪酬信息</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="paymentForm" class="form-horizontal" method="post" name="paymentForm"
+                                      novalidate="novalidate">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="paymentInfo.name"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="paymentInfo.identityNumber"/>
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr class="odd gradeX">
+                                                <th>薪酬开始时间</th>
+                                                <th>薪酬结束时间</th>
+                                                <th>职级</th>
+                                                <th>档次</th>
+                                                <th>发放比例</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="odd gradeX text-right"
+                                                ng-repeat="payment in paymentInfo.payments"   >
+                                                <td class="controls">
+                                                    <div class="input-append date">
+
+                                                        <input id="beginDate" name="beginDate"
+                                                               type="text" class="datetimepicker" orz
+                                                               ng-model="payment.beginDate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+                                                </td>
+                                                <td class="controls">
+
+                                                    <div class="input-append date">
+
+                                                        <input id="endate" name="endate"
+                                                               type="text" class="datetimepicker" orz
+                                                               ng-model="payment.endate"
+                                                                />
+                                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                                    </div>
+
+                                                </td>
+                                                <td class="controls">
+
+                                                    <input id="workCompany" type="text" name="workCompany"
+                                                           ng-model="payment.jobLevel"/>
+
+                                                </td>
+                                                <td class="controls">
+
+                                                    <input id="workDepartMent" type="text" name="workDepartMent"
+                                                           ng-model="payment.jobGrade"/>
+
+                                                </td>
+                                                <td class="controls">
+
+                                                    <input id="workPosition" type="text" name="workPosition"
+                                                           ng-model="payment.grantRadio"/>
+
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-xs"
+                                                            ng-click="paymentInfo.add()"
+                                                            >
+                                                        <span class="glyphicon glyphicon-upload"></span> 新增
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs"
+                                                            ng-click="paymentInfo.remove($index)">
+                                                        <span class="glyphicon glyphicon-trash"></span> 删除
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- bottom -->
+<div>
+    <div class="h30">
+        <div class="w h30 wrapper-bottom-buttons wrapper-bottom-buttons-bg"></div>
+        <div class="w tac wrapper-bottom-buttons fs0">
+            <!-- <button class="btn btn-success mt10">保存</button> -->
+            <button type="button" ng-click="baojia()" class="btn btn-success mt10 ml5">保存</button>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/personal-issue.js"></script>
+<!-- <script src="js/carModel.js"></script> -->
+<!--Picker-->
+<script src="js/bootstrap-datetimepicker.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- <script src="js/angular-1.2.9.js"></script> -->
+<!--<script src="js/angular-1.2.9.js"></script>-->
+<script src="js/angular.min.js"></script>
+<script src="js/angular-cookies.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<!-- <script src="js/angularjs-datetime-picker.js"></script> -->
+<!-- <script src="js/ngDialog.js"></script> -->
+<script src="js/ui-bootstrap-tpls.js"></script>
+<script src="js/plugin/jquery.blockui.js"></script>
+<script src="js/common/LoaderMask.js"></script>
+<!--<script src="js/fy.js"></script>
+<script src="js/config.js"></script>-->
+<script src="js/jquery.validate.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<!--<script src="js/angular-issue.js"></script>-->
+<!--<script src="js/employee.js"></script>-->
+<!--<script src="js/angular-backtop.js"></script>-->
+<script src="js/customSelect.js"></script>
+
+<script>
+    var app = angular.module('myApp', ['AxelSoft']);
+    app.controller('myController', function ($scope, $http, $log, $filter,$timeout,$q) {
+
+        $scope.employee={};
+        $scope.showStatus=0;
+
+
+        $http.get('api-a/get?remark=人员清分')
+                .success(function (data, status) {
+                    $scope.personTypes = data;
+                    $scope.employee.personType = $scope.personTypes[0];
+
+                    $scope.personTypeOptions.onSelect( $scope.personTypes[0]);
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取人员清分信息失败", "error");
+                })
+
+
+        $http.get('api-a/get?remark=部门')
+                .success(function (data, status) {
+                    $scope.comCodes = data;
+                    $scope.employee.comCode = $scope.comCodes[0];
+
+                    $scope.comCodeOptions.onSelect($scope.comCodes[0]);
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取部门信息失败", "error");
+                })
+
+        $http.get('api-a/get?remark=二级部门')
+                .success(function (data, status) {
+                    $scope.teamCodes = data;
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取二级部门信息失败", "error");
+                })
+
+        $http.get('api-a/get?remark=所属渠道')
+                .success(function (data, status) {
+                    $scope.channelTypes = data;
+                    $scope.employee.channelType = $scope.channelTypes[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取渠道信息失败", "error");
+                })
+
+        $http.get('api-a/get?remark=岗位类别')
+                .success(function (data, status) {
+                    $scope.postTypes = data;
+                    $scope.employee.postType = $scope.postTypes[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取岗位类别信息失败", "error");
+                })
+        $http.get('api-a/get?remark=户籍')
+                .success(function (data, status) {
+                    $scope.residences = data;
+                    $scope.employee.residence = $scope.residences[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取户籍信息失败", "error");
+                })
+        $http.get('api-a/get?remark=民族')
+                .success(function (data, status) {
+                    $scope.nations = data;
+                    $scope.employee.nation = $scope.nations[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取民族信息失败", "error");
+                })
+        $http.get('api-a/get?remark=政治面貌')
+                .success(function (data, status) {
+                    $scope.politicalStatuss = data;
+                    $scope.employee.politicalStatus = $scope.politicalStatuss[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取政治面貌信息失败", "error");
+                })
+        $http.get('api-a/get?remark=学历')
+                .success(function (data, status) {
+                    $scope.educations = data;
+                    $scope.employee.education = $scope.educations[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取学历信息失败", "error");
+                })
+        $http.get('api-a/get?remark=学位')
+                .success(function (data, status) {
+                    $scope.degrees = data;
+                    $scope.employee.degree = $scope.degrees[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取学位信息失败", "error");
+                })
+        $http.get('api-a/get?remark=职称级别')
+                .success(function (data, status) {
+                    $scope.professionalLevels = data;
+                    $scope.employee.professionalLevel = $scope.professionalLevels[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取职称级别失败", "error");
+                })
+        $http.get('api-a/get?remark=合同类型')
+                .success(function (data, status) {
+                    $scope.contractTyes = data;
+                    $scope.employee.contractTye = $scope.contractTyes[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取合同级别失败", "error");
+                })
+        $http.get('api-a/get?remark=婚姻状态')
+                .success(function (data, status) {
+                    $scope.maritalStatuss = data;
+                    $scope.employee.maritalStatus = $scope.maritalStatuss[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取婚姻状况信息失败", "error");
+                })
+        $http.get('api-a/get?remark=在职状态')
+                .success(function (data, status) {
+                    $scope.statuss = data;
+                    $scope.employee.status = $scope.statuss[0];
+                })
+                .error(function (data, status) {
+                    swal("系统提示", "获取在职状态信息失败", "error");
+                })
+
+        $scope.comCodeOptions = {
+            onSelect: function (item) {
+                console.log($scope.employee.comCode);
+            }
+        };
+        $scope.teamCodeOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.channelTypeOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.postTypeOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.residenceOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.nationOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.politicalStatusOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.educationOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.degreeOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.professionalLevelOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.contractTyeOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.maritalStatusOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.statusOptions = {
+            onSelect: function (item) {
+            }
+        };
+        $scope.level1Options = {
+            onSelect: function (item) {
+                console.log($scope.level1);
+            }
+        };
+
+        $scope.findEmployee=function(){
+            $scope.showStatus=1;
+        }
+//
+    })
+
+    app.directive('orz', function () {
+        return {
+            restrict: 'A',
+            //总是和ng-model配合使用
+            require: 'ngModel',
+            scope: {
+                //此方法需要与预先定义好，然后传递给视图控制器中的指令
+                action: '&', //把我们所引用的select函数绑定到右边的作用域中
+                dateflag: '='//双向绑定变量
+
+            },
+            link: function (scope, element, attrs, ngModel) {
+
+                element.datetimepicker({
+                    minView: "month",
+                    format: "yyyy-mm-dd",
+                    language: 'zh-CN',
+                    autoclose: true,
+                    clearBtn: true
+                    //onSelect: function (dateText, inst) {
+                    //    ngModel.$setViewValue(dateText);
+                    //    scope.$apply();
+                    //}
+                })
+                        .on('changeDate', function (e) {
+                            //console.log('dp.change'+e.date.format('yyyy'));
+                            $(this).datetimepicker('hide');
+                            var year = e.date.getFullYear();
+                            var month = e.date.getMonth() + 1;
+                            if (month < 10) {
+                                month = '0' + month;
+                            }
+                            var date = e.date.getDate();
+                            if (date < 10) {
+                                date = '0' + date;
+                            }
+                            var formatDate = year + '-' + month + '-' + date;
+                            //console.log(formatDate);
+                            //console.debug(scope);
+                            ngModel.$setViewValue(formatDate);
+
+                            scope.$apply();
+                            scope.action();
+
+                        });
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "identityNumber": "350481198801033061",
+  "name": "林丽萍",
+  "works": [
+    {
+      "beginDate": "2014-07-01",
+      "endDate": "2015-10-31",
+      "workCompany": "厦门大圩嘉庚学院",
+      "workDepartMent": "会计系",
+      "workPosition": "专任教师"
+    },
+    {
+      "beginDate": "2015-11-01",
+      "endDate": "2016-11-01",
+      "workCompany": "新疆前海联合财产保险股份有限公司",
+      "workDepartMent": "财务部",
+      "workPosition": "预算管理兼核异岗"
+    },
+    {
+      "beginDate": "2016-11-02",
+      "endDate": "2016-12-12",
+      "workCompany": "择业期",
+      "workDepartMent": "",
+      "workPosition": ""
+    },
+    {
+      "beginDate": "2016-12-13",
+      "endDate": "",
+      "workCompany": "中国人寿财产保险股份有限公司深圳分公司",
+      "workDepartMent": "财务会计部",
+      "workPosition": "会计岗"
+    }
+  ]
+}

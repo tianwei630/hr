@@ -1,0 +1,51 @@
+#back-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 40px;
+    z-index: 9999;
+    /*width: 60px;*/
+    /*height: 60px;*/
+    padding: 10px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-weight: normal;
+    text-decoration: none !important;
+    /*text-align: center;*/
+    /*line-height: 30px;*/
+    background: #cfcfcf;;
+    color: #333;
+    cursor: pointer;
+    border: 0;
+    /*text-decoration: none;*/
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+/*#back-to-top{ /!* back to top button *!/*/
+    /*position: fixed;*/
+    /*bottom: 40px; /!* 小按钮到浏览器底边的距离 *!/*/
+    /*right: 50px; /!* 小按钮到浏览器右边框的距离 *!/*/
+    /*color: #333; /!* 小按钮中文字的颜色 *!/*/
+    /*z-index: 1000;*/
+    /*background: #cfcfcf; /!* 小按钮底色 *!/*/
+    /*padding: 10px; /!* 小按钮中文字到按钮边缘的距离 *!/*/
+    /*border-radius: 4px; /!* 小按钮圆角的弯曲程度（半径）*!/*/
+    /*-moz-border-radius: 4px;*/
+    /*-webkit-border-radius: 4px;*/
+    /*font-weight: normal; /!* 小按钮中文字的粗细 *!/*/
+    /*text-decoration: none !important;*/
+/*}*/
+
+#back-to-top:hover {
+    /*background: #5cb85c;*/
+    background: #333; /* 小按钮的底色 */
+    color: #fff; /* 文字颜色 */
+}
+
+#back-to-top.show {
+    opacity: 1;
+}
+
+#content {
+    height: 2000px;
+}

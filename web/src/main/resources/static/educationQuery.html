@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>教育信息</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- <link rel="stylesheet" href="css/site.css"/> -->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/sweet-alert.css"/>
+    <script src="js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="css/angularjs-datetime-picker.css"/>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/angular-backtop.css"/>
+    <link rel="stylesheet" href="css/select.css"/>
+
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div id="content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content tab-content">
+                        <!-- 查询条件-->
+                        <div class="widget-box" ng-show="showStatus" >
+                            <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+                                <h5>查询条件</h5>
+                            </div>
+                            <div class="widget-content nopadding">
+                                <form id="queryForm" class="form-horizontal" method="get" name="queryForm"
+                                      novalidate="novalidate">
+                                    <div id="form-wizard-1" class="step">
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>姓名:</label>
+
+                                            <div class="controls">
+
+                                                <input id="name" type="text" name="name"
+                                                       ng-model="query.name"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group control-group-inline">
+                                            <label class="control-label"><span
+                                                    class="require-tips">*</span>身份证号码:</label>
+
+                                            <div class="controls">
+                                                <input id="identityNumber" type="text" name="identityNumber"
+                                                       ng-model="query.identityNumber"/>
+                                                <button type="button" class="btn btn-success"
+                                                        ng-click="findEmployee()">查 询
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+
+
+
+                        <div ng-view ></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- bottom -->
+<div>
+    <div class="h30">
+        <div class="w h30 wrapper-bottom-buttons wrapper-bottom-buttons-bg"></div>
+        <div class="w tac wrapper-bottom-buttons fs0">
+            <!-- <button class="btn btn-success mt10">保存</button> -->
+            <button type="button" ng-click="save()" class="btn btn-success mt10 ml5" ng-show="!showStatus">保存</button>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- <script src="js/carModel.js"></script> -->
+<!--Picker-->
+<script src="js/bootstrap-datetimepicker.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- <script src="js/angular-1.2.9.js"></script> -->
+<!--<script src="js/angular-1.2.9.js"></script>-->
+<script src="js/angular.min.js"></script>
+<script src="js/angular-cookies.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<!-- <script src="js/angularjs-datetime-picker.js"></script> -->
+<!-- <script src="js/ngDialog.js"></script> -->
+<script src="js/ui-bootstrap-tpls.js"></script>
+<script src="js/plugin/jquery.blockui.js"></script>
+<script src="js/common/LoaderMask.js"></script>
+<!--<script src="js/fy.js"></script>
+<script src="js/config.js"></script>-->
+<script src="js/jquery.validate.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<!--<script src="js/angular-issue.js"></script>-->
+<!--<script src="js/employee.js"></script>-->
+<!--<script src="js/angular-backtop.js"></script>-->
+<script src="js/customSelect.js"></script>
+<script src="js/education.js"></script>
+
+</body>
+</html>

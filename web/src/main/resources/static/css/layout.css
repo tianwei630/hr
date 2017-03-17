@@ -1,0 +1,159 @@
+/*
+交强险
+*/
+.inputxt,.cal-sum{
+	 height: 20px;
+    border: 1px solid #CCC;
+    line-height: 20px;
+    background-color: #F5f5f5;
+    display: inline-block;
+    min-width: 80px;
+    vertical-align: middle;
+}
+.dib{
+	display: inline-block;
+}
+.section{
+	border: 1px dotted #666;
+	border-radius: 5px;
+	margin: 10px 20px;
+	padding: 10px;
+}
+.section-m0{
+	margin: 0;
+}
+.clear{
+	clear: both;
+}
+.w80{
+	width: 80px;
+}
+.h30{
+	height: 30px;
+}
+.fr{
+	float: right;
+}
+.fl{
+	float: left;
+}
+.w{
+	width: 100%;
+}
+.w160{
+	width:160px;
+}
+.w120{
+	width:120px;
+}
+.bdb_d_888{
+	border-bottom: 1px dotted #888;
+}
+.mt5{
+	margin-top:5px; 
+}
+.mt10{
+	margin-top:10px; 
+}
+.mr5{
+	margin-right: 5px;
+}
+.mb10{
+	margin-bottom:10px;
+}
+.mb5{
+	margin-bottom: 5px;
+}
+.f12{
+	font-size: 12px;
+}
+
+.fwb{
+	font-weight: bold;
+}
+.p5{
+	padding: 5px;
+}
+.form-horizontal .w350{
+	width: 350px;
+}
+
+.form-horizontal .w150{
+	width: 150px;
+}
+.ml50{
+	margin-left:50px;
+}
+.m5{
+	margin:5px;
+}
+.ml170{
+	margin-left: 170px;
+}
+.control-group-row{
+	display: table;
+	margin-bottom: 8px;
+}
+
+.form-horizontal .control-group{
+	display: inline-table;
+	margin-bottom: 8px;
+}
+
+.form-horizontal .control-label{
+	float: left;
+	width:120px;
+	padding-top: 0px;
+	text-align: right;
+}
+
+.form-horizontal .controls{
+	margin:0 0 0 10px; 
+	display: inline;
+}
+label{
+	display: inline-block;
+}
+
+.dis_i{
+	display: inline;
+}
+
+.hide{
+	display: none;
+}
+.clearfix{
+}
+table.ac td{
+	text-align: center;	
+}
+
+.toggle {
+    line-height: 16px;
+    width: 20px;
+    position: relative;
+    height: 22px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    }
+
+.plus{
+	background:url(../img/plus.png);
+}
+
+.minus{
+	height: 35px;
+	background:url(../img/minus.png);
+}
+
+.tar{
+	text-align: right;
+}
+.tal{
+	text-align: left;
+}
+.tac{
+	text-align: center;
+}

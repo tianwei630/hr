@@ -1,0 +1,74 @@
+<!--账号信息-->
+<div class="widget-box">
+    <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+        <h5>账号信息</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <form id="workForm" class="form-horizontal" method="post" name="workForm"
+              novalidate="novalidate">
+            <div id="form-wizard-1" class="step">
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>姓名:</label>
+
+                    <div class="controls">
+
+                        <input id="name" type="text" name="name"
+                               ng-model="accountInfo.name"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>身份证号码:</label>
+
+                    <div class="controls">
+                        <input id="identityNumber" type="text" name="identityNumber"
+                               ng-model="accountInfo.identityNumber"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>工资卡号:</label>
+
+                    <div class="controls">
+                        <input id="accountNo" type="text" name="accountNo"
+                               ng-model="accountInfo.accountNo"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>社保电脑号:</label>
+
+                    <div class="controls">
+                        <input id="socialInsuranceNo" type="text" name="socialInsuranceNo"
+                               ng-model="accountInfo.socialInsuranceNo"/>
+                    </div>
+                </div>
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>公积金账号:</label>
+
+                    <div class="controls">
+                        <input id="houseNo" type="text" name="houseNo"
+                               ng-model="accountInfo.houseNo"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>邮箱:</label>
+
+                    <div class="controls">
+                        <input id="email" type="text" name="email"
+                               ng-model="accountInfo.email"/>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+</div>

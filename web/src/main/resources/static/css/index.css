@@ -1,0 +1,174 @@
+body {
+	overflow: hidden;
+}
+.icon{
+	margin-top: 2px;
+}
+#sideBar {
+	position: absolute;
+	top: 70px;
+	bottom: 0;
+	left: 0;
+	width: 220px;
+	background-color: #2e363f;
+}
+
+#sysMenu {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 220px;
+	overflow-y: auto;
+}
+
+.menu-lv1 {
+	padding: 8px 0 10px 15px;
+	display: block;
+	color: #939da8;
+	border-top: 1px solid #37414b;
+	border-bottom: 1px solid #1f262d;
+	cursor: default;
+	font-size: 14px;
+	text-shadow: -1px -1px 0 #000;
+}
+
+.menu-lv1:hover, .menu-lv1-active {
+	color: #fff;
+	background-color: #27a9e3;
+	text-shadow: 1px 1px 0 #2c4969;
+}
+.menu-lv1-active {
+	background-image: url("../img/menu-active.png");
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+
+.ulMenu-lv2 {
+	display: none;
+	background-color: #1a1f25;
+}
+
+.menu-lv2 {
+	padding: 0;
+}
+
+.menu-lv2 a {
+	display: block;
+	font-size: 14px;
+	color: #c9d7e6;
+	text-decoration: none;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 56px;
+}
+.menu-lv1-active~.menu-lv2 a{
+	color: #fff;
+}
+
+.menu-lv2 a:hover {
+	color: #d6e5f5;
+
+}
+
+.menu-lv2:hover {
+	background-color: #c9a93f;
+}
+.menu-lv2-active, .menu-lv2-active:hover{
+	background-color:#28b779;
+}
+.menu-lv2-active{
+}
+.menu-lv2:hover a, .menu-lv2-active a{
+	color: #fff;
+}
+
+#logo {
+	position: absolute;
+	width: 220px;
+	height: 70px;
+	float: left;
+	border-right: 1px solid #000;
+	background-color: #22292f;
+	background-image: url("../img/logo.png");
+	background-repeat: no-repeat;
+	background-position: 16px center;
+}
+
+
+#headerBars {
+	position: absolute;
+	left: 219px;
+	right: 0;
+	background-color: #22292f;
+	border-left: 1px solid #2e363f;
+}
+
+#topBar {
+	height: 38px;
+}
+
+#breadcrumb {
+	line-height: 32px;
+	background-color: #fff;
+	padding-left: 18px;
+}
+
+#userBar {
+	float: left;
+	line-height: 38px;
+	padding-left: 16px;
+	color: #999;
+}
+
+#topNavMenu {
+	float: right;
+	height: 37px;
+	line-height: 37px;
+	border-left: 1px solid #000;
+}
+
+.topNavMenuItem {
+	float: right;
+	border-left: 1px solid #2e363f;
+	border-right: 1px solid #000;
+}
+
+.topNavMenuLink {
+	font-size: 12px;
+	display: block;
+	color: #999;
+	text-align: center;
+	text-decoration: none;
+	padding: 0 20px;
+}
+
+.topNavMenuLink:hover {
+	color: #fff;
+	background-color: #1b2025;
+}
+
+#mainSec {
+	position: absolute;
+	left: 220px;
+	top: 70px;
+	right: 0;
+	bottom: 0;
+	padding: 10px 0 10px 0;
+}
+
+#mainFrame {
+	width: 100%;
+	height: 100%;
+}
+
+#breadcrumb a {
+	color: #666;
+	text-decoration: none;
+}
+
+#breadcrumb a:hover {
+	color: #333;
+	text-decoration: underline;
+}

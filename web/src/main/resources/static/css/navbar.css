@@ -1,0 +1,16 @@
+.wrapper-top-buttons {
+    position: fixed;
+    top: 0px;
+    padding: 5px;
+    z-index: 3;
+    padding-top: 15px;
+}
+
+.wrapper-top-buttons-bg {
+    z-index: 2;
+    border-top: 1px solid #666;
+    background: #e4e9ed;
+    /*border-color: #cdcdcd;*/
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}

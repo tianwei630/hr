@@ -1,0 +1,122 @@
+<!--教育信息-->
+<div class="widget-box">
+    <div class="widget-title"><span class="icon"> <i class="icon-list"></i> </span>
+        <h5>教育信息</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <form id="workForm" class="form-horizontal" method="post" name="workForm"
+              novalidate="novalidate">
+            <div id="form-wizard-1" class="step">
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>姓名:</label>
+
+                    <div class="controls">
+
+                        <input id="name" type="text" name="name"
+                               ng-model="educationInfo.name"/>
+                    </div>
+                </div>
+
+                <div class="control-group control-group-inline">
+                    <label class="control-label"><span
+                            class="require-tips">*</span>身份证号码:</label>
+
+                    <div class="controls">
+                        <input id="identityNumber" type="text" name="identityNumber"
+                               ng-model="educationInfo.identityNumber"/>
+                    </div>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="odd gradeX">
+                        <th>开始时间</th>
+                        <th>结束时间</th>
+                        <th>毕业院校</th>
+                        <th>学历</th>
+                        <th>学位</th>
+                        <th>所学专业</th>
+                        <th>是否全日制</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="odd gradeX text-right"
+                        ng-repeat="education in educationInfo.educations">
+                        <td class="controls">
+                            <div class="input-append date">
+
+                                <input id="beginDate" name="beginDate"
+                                       type="text" class="datetimepicker w120" orz
+                                       ng-model="education.beginDate"
+                                        />
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                            </div>
+                        </td>
+                        <td class="controls ">
+
+                            <div class="input-append date">
+
+                                <input id="endDate" name="endDate"
+                                       type="text" class="datetimepicker w120" orz
+                                       ng-model="education.endDate"
+                                        />
+                                <span class="add-on"><i class="icon-calendar"></i></span>
+                            </div>
+
+                        </td>
+                        <td class="controls col-md-2">
+
+                            <input id="graduateSchool" type="text" name="graduateSchool"
+                                   ng-model="education.graduateSchool"/>
+
+                        </td>
+                        <td class="controls col-md-1">
+
+                            <div custom-select="g.code+'--'+g.name for g in educations | filter: $searchTerm"
+                                 class="w120"
+                                 ng-model="education.education"></div>
+
+                        </td>
+                        <td class="controls col-md-1">
+
+                            <div custom-select="g.code+'--'+g.name for g in degrees | filter: $searchTerm"
+                                 class="w120"
+                                 ng-model="education.degree"></div>
+
+                        </td>
+                        <td class="controls col-md-1">
+
+                            <input id="major" type="text" name="major"
+                                   ng-model="education.major"/>
+
+                        </td>
+                        <td class="controls col-md-1">
+                            <input type="checkbox" ng-true-value="1" ng-false-value="0"
+                                   ng-model="education.fullTimeFlag"
+                                    />
+                        </td>
+                        <td class="col-md-2">
+                            <button type="button" class="btn btn-success btn-xs"
+                                    ng-click="educationInfo.add()"
+                                    >
+                                <span class="glyphicon glyphicon-upload"></span> 新增
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs"
+                                    ng-click="educationInfo.remove($index)">
+                                <span class="glyphicon glyphicon-trash"></span> 删除
+                            </button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </form>
+    </div>
+
+</div>
