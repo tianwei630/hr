@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>查询经销商库存/车辆信息（最新库存记录）</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; line-height: 1.6; margin: 24px; }
+    h1, h2, h3 { line-height: 1.3; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    .muted { color: #888; font-size: 12px; }
+    code, pre { background: rgba(125,125,125,.08); border-radius: 6px; }
+    code { padding: 2px 6px; }
+    pre { padding: 12px; overflow: auto; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: rgba(125,125,125,.1); }
+    .section { margin: 28px 0; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+  </style>
+  <meta name="description" content="查询经销商库存/车辆信息（最新库存记录）API 文档" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <meta name="robots" content="noindex" />
+  <meta name="generator" content="Cursor AI" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="API Doc" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:title" content="查询经销商库存/车辆信息（最新库存记录）" />
+  <meta property="og:type" content="article" />
+</head>
+<body>
+  <header>
+    <h1>查询经销商库存/车辆信息（最新库存记录）</h1>
+    <div class="muted">版本 1.0</div>
+  </header>
+
+  <section class="section" id="basic">
+    <h2>1. 基本信息</h2>
+    <table>
+      <tbody>
+        <tr><th>接口名称</th><td>查询经销商库存/车辆信息（最新库存记录）</td></tr>
+        <tr><th>接口描述</th><td>按品牌、条件或 VIN 列表查询经销商最新一条库存记录的车辆信息。</td></tr>
+        <tr><th>请求方式</th><td><code class="kbd">POST</code></td></tr>
+        <tr><th>接口地址</th><td><code>/api/v1/query/dealer/vehicle/stock</code></td></tr>
+        <tr><th>环境</th><td><code>prod</code> | <code>uat</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="auth">
+    <h2>2. 认证</h2>
+    <p><strong>类型</strong>: HTTP Basic</p>
+    <p><strong>说明</strong>: <code>Authorization: Basic Base64(appKey:appSecret)</code></p>
+  </section>
+
+  <section class="section" id="headers">
+    <h2>3. 请求头</h2>
+    <table>
+      <thead><tr><th>名称</th><th>必填</th><th>示例</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Authorization</td>
+          <td>是</td>
+          <td><code>Basic dGVzdEFwcEtleTp0ZXN0QXBwU2VjcmV0</code></td>
+          <td>HTTP Basic 凭据</td>
+        </tr>
+        <tr>
+          <td>Content-Type</td>
+          <td>是</td>
+          <td><code>application/json</code></td>
+          <td>请求体 JSON</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="request">
+    <h2>4. 请求体</h2>
+    <h3>4.1 JSON 结构</h3>
+    <pre><code>{
+  "brand": "某品牌",
+  "filters": {
+    "dealerCodes": ["D001", "D002"],
+    "province": "上海",
+    "city": "上海",
+    "warehouseTypes": ["自建仓", "第三方仓"],
+    "dateRange": {
+      "begin": "2025-01-01T00:00:00+08:00",
+      "end": "2025-12-31T23:59:59+08:00"
+    }
+  },
+  "vins": ["LDC12345678900001", "LDC12345678900002"]
+}</code></pre>
+
+    <h3>4.2 字段说明</h3>
+    <table>
+      <thead><tr><th>字段</th><th>类型</th><th>必填</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>brand</td><td>String</td><td>是</td><td>品牌标识</td></tr>
+        <tr><td>filters</td><td>Object</td><td>否</td><td>组合筛选条件</td></tr>
+        <tr><td>filters.dealerCodes</td><td>Array[String]</td><td>否</td><td>经销商编码列表</td></tr>
+        <tr><td>filters.province</td><td>String</td><td>否</td><td>省份</td></tr>
+        <tr><td>filters.city</td><td>String</td><td>否</td><td>城市</td></tr>
+        <tr><td>filters.warehouseTypes</td><td>Array[String]</td><td>否</td><td>仓库类型（自建仓/第三方仓等）</td></tr>
+        <tr><td>filters.dateRange</td><td>Object</td><td>否</td><td>记录时间范围（闭区间）</td></tr>
+        <tr><td>filters.dateRange.begin</td><td>String(DateTime)</td><td>否</td><td>开始时间（ISO8601）</td></tr>
+        <tr><td>filters.dateRange.end</td><td>String(DateTime)</td><td>否</td><td>结束时间（ISO8601）</td></tr>
+        <tr><td>vins</td><td>Array[String]</td><td>否</td><td>VIN 列表；存在时优先生效</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="response">
+    <h2>5. 响应</h2>
+    <h3>5.1 成功响应示例</h3>
+    <pre><code>{
+  "code": "0",
+  "msg": "operation successful",
+  "data": [
+    {
+      "vin": "LDC12345678900001",
+      "brand": "某品牌",
+      "modelCode": "ABC-2025",
+      "modelName": "旗舰版",
+      "vehicleTypeCode": "SUV",
+      "vehicleTypeName": "运动型多用途车",
+      "color": "珍珠白",
+      "engineNo": "EN12345678",
+      "productionOrderNumber": "PO202509010001",
+      "microWarrantyNumber": "MWN-0001",
+      "warehouseCode": "WH001",
+      "warehouseName": "华东中心仓",
+      "dealerCode": "D001",
+      "dealerName": "上海XX经销商",
+      "stockStatus": "在库",
+      "stockInTime": "2025-09-01T08:30:00+08:00",
+      "lastUpdateTime": "2025-09-24T10:00:00+08:00",
+      "odometerKm": 0,
+      "remark": null
+    }
+  ]
+}</code></pre>
+
+    <h3>5.2 字段说明（data[]）</h3>
+    <table>
+      <thead><tr><th>字段</th><th>类型</th><th>约束/示例</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>vin</td><td>String</td><td>LDC12345678900001</td><td>车辆 VIN</td></tr>
+        <tr><td>brand</td><td>String</td><td>某品牌</td><td>品牌</td></tr>
+        <tr><td>modelCode</td><td>String</td><td>ABC-2025</td><td>车型编码</td></tr>
+        <tr><td>modelName</td><td>String</td><td>旗舰版</td><td>车型名称</td></tr>
+        <tr><td>vehicleTypeCode</td><td>String</td><td>SUV</td><td>车辆类型编码</td></tr>
+        <tr><td>vehicleTypeName</td><td>String</td><td>运动型多用途车</td><td>车辆类型名称</td></tr>
+        <tr><td>color</td><td>String</td><td>珍珠白</td><td>车身颜色</td></tr>
+        <tr><td>engineNo</td><td>String</td><td>EN12345678</td><td>发动机号</td></tr>
+        <tr><td>productionOrderNumber</td><td>String</td><td>PO202509010001</td><td>生产/工单号</td></tr>
+        <tr><td>microWarrantyNumber</td><td>String/null</td><td>MWN-0001</td><td>微担保号/微保单号（如有）</td></tr>
+        <tr><td>warehouseCode</td><td>String</td><td>WH001</td><td>仓库编码</td></tr>
+        <tr><td>warehouseName</td><td>String</td><td>华东中心仓</td><td>仓库名称</td></tr>
+        <tr><td>dealerCode</td><td>String</td><td>D001</td><td>经销商编码</td></tr>
+        <tr><td>dealerName</td><td>String</td><td>上海XX经销商</td><td>经销商名称</td></tr>
+        <tr><td>stockStatus</td><td>String</td><td>在库/已出库</td><td>最新库存状态</td></tr>
+        <tr><td>stockInTime</td><td>String(DateTime)</td><td>2025-09-01T08:30:00+08:00</td><td>入库时间</td></tr>
+        <tr><td>lastUpdateTime</td><td>String(DateTime)</td><td>2025-09-24T10:00:00+08:00</td><td>最新库存更新时间</td></tr>
+        <tr><td>odometerKm</td><td>Number</td><td>0</td><td>里程（公里）</td></tr>
+        <tr><td>remark</td><td>String/null</td><td>-</td><td>备注</td></tr>
+      </tbody>
+    </table>
+
+    <h3>5.3 失败响应示例</h3>
+    <pre><code>{
+  "code": "1001",
+  "msg": "authorization failed",
+  "data": null
+}</code></pre>
+  </section>
+
+  <section class="section" id="status">
+    <h2>6. 状态码说明</h2>
+    <table>
+      <thead><tr><th>code</th><th>含义</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>成功</td></tr>
+        <tr><td>1001</td><td>认证失败或凭据无效</td></tr>
+        <tr><td>1002</td><td>参数错误</td></tr>
+        <tr><td>1003</td><td>无数据</td></tr>
+        <tr><td>1999</td><td>未知错误</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="notes">
+    <h2>7. 备注</h2>
+    <ul>
+      <li>若提供 <code>vins</code>，系统将忽略其他筛选条件并直接按 VIN 查询。</li>
+      <li>HTTP Basic 认证需使用平台分配的 <code>appKey</code> 与 <code>appSecret</code>。</li>
+      <li>时间字段统一为 ISO8601 字符串并带时区。</li>
+    </ul>
+  </section>
+
+  <section class="section" id="changelog">
+    <h2>8. 变更记录</h2>
+    <table>
+      <thead><tr><th>版本</th><th>日期</th><th>作者</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>1.0</td><td>2025-09-24</td><td>系统生成</td><td>初始版本</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="section">
+    <div class="muted">© 2025 API Docs</div>
+  </footer>
+</body>
+</html>
+
