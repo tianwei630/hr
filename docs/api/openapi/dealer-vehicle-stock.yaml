@@ -1,0 +1,181 @@
+openapi: 3.0.3
+info:
+  title: 查询经销商库存/车辆信息（最新库存记录）
+  version: 1.0.0
+  description: 按品牌、条件或 VIN 列表查询经销商最新库存记录的车辆信息。
+servers:
+  - url: https://api.example.com
+    description: 生产环境
+  - url: https://uat-api.example.com
+    description: UAT 环境
+paths:
+  /api/v1/query/dealer/vehicle/stock:
+    post:
+      summary: 查询经销商库存/车辆信息（最新库存记录）
+      operationId: queryDealerVehicleStock
+      security:
+        - basicAuth: []
+      tags:
+        - DealerStock
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+            examples:
+              default:
+                value:
+                  brand: 某品牌
+                  filters:
+                    dealerCodes: [D001, D002]
+                    province: 上海
+                    city: 上海
+                    warehouseTypes: [自建仓, 第三方仓]
+                    dateRange:
+                      begin: '2025-01-01T00:00:00+08:00'
+                      end: '2025-12-31T23:59:59+08:00'
+                  vins: [LDC12345678900001, LDC12345678900002]
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              examples:
+                success:
+                  value:
+                    code: '0'
+                    msg: operation successful
+                    data:
+                      - vin: LDC12345678900001
+                        brand: 某品牌
+                        modelCode: ABC-2025
+                        modelName: 旗舰版
+                        vehicleTypeCode: SUV
+                        vehicleTypeName: 运动型多用途车
+                        color: 珍珠白
+                        engineNo: EN12345678
+                        productionOrderNumber: PO202509010001
+                        microWarrantyNumber: MWN-0001
+                        warehouseCode: WH001
+                        warehouseName: 华东中心仓
+                        dealerCode: D001
+                        dealerName: 上海XX经销商
+                        stockStatus: 在库
+                        stockInTime: '2025-09-01T08:30:00+08:00'
+                        lastUpdateTime: '2025-09-24T10:00:00+08:00'
+                        odometerKm: 0
+                        remark: null
+        '400':
+          description: 参数错误
+        '401':
+          description: 认证失败
+        '404':
+          description: 无数据
+        '500':
+          description: 服务器错误
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          description: 业务状态码
+          example: '0'
+        msg:
+          type: string
+          description: 描述信息
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleStock'
+          nullable: true
+    QueryRequest:
+      type: object
+      required: [brand]
+      properties:
+        brand:
+          type: string
+          description: 品牌标识
+        filters:
+          $ref: '#/components/schemas/Filters'
+        vins:
+          type: array
+          description: VIN 列表；存在时优先生效
+          items:
+            type: string
+    Filters:
+      type: object
+      properties:
+        dealerCodes:
+          type: array
+          items: { type: string }
+        province:
+          type: string
+        city:
+          type: string
+        warehouseTypes:
+          type: array
+          items: { type: string }
+        dateRange:
+          type: object
+          properties:
+            begin:
+              type: string
+              format: date-time
+            end:
+              type: string
+              format: date-time
+    VehicleStock:
+      type: object
+      properties:
+        vin:
+          type: string
+        brand:
+          type: string
+        modelCode:
+          type: string
+        modelName:
+          type: string
+        vehicleTypeCode:
+          type: string
+        vehicleTypeName:
+          type: string
+        color:
+          type: string
+        engineNo:
+          type: string
+        productionOrderNumber:
+          type: string
+        microWarrantyNumber:
+          type: string
+          nullable: true
+        warehouseCode:
+          type: string
+        warehouseName:
+          type: string
+        dealerCode:
+          type: string
+        dealerName:
+          type: string
+        stockStatus:
+          type: string
+          description: 在库/已出库
+        stockInTime:
+          type: string
+          format: date-time
+        lastUpdateTime:
+          type: string
+          format: date-time
+        odometerKm:
+          type: number
+        remark:
+          type: string
+          nullable: true
